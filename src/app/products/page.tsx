@@ -16,16 +16,16 @@ export default async function Page() {
         getData();
     },[])*/
 
-const res = await fetch('/api/products')
+const res = await fetch("http://localhost:3000/api/products")
     const products = await res.json()
 
     /*const filtrados = products.filter((item) =>
         item.titletoLowerCase().includes(search.toLowerCase()))*/
     return (
-        <div className="flex justify-center min-h-screen bg-white">
+        <div className="flex justify-center min-h-screen">
             {products.map((p: any) => (
-                <Link href={`products/${p.id}`}>
-                    <div key={p.id}>
+                <Link key={p._id} href={`products/${p._id}`}>
+                    <div>
                         <h1>{p.title}</h1>
                         <h1>{p.price}</h1>
                     </div>
